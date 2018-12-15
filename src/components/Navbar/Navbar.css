@@ -1,13 +1,22 @@
-.navbar > a {
-  font-size: 1em;
-  text-decoration: none;
-  color: black;
-  background-color: #D3D3D3;
-  margin: 10px;
-  padding: 3px 15px;
+#navbarContainer {
+  width: 100%;
+  background-color: #f0f0f0;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+  display: none;
+  justify-content: center;
+}
+
+#navbar {
+  width: 60%;
   display: flex;
-  width: auto;
-  float: left;
-  clear: left;
-  border-radius: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#navbar > a {
+  font-size: 1.3em;
+  padding-left: 10px;
+  padding-right: 10px;
 }

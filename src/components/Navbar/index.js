@@ -3,12 +3,18 @@ import { Link } from 'react-router-dom';
 
 import './Navbar.css';
 
-const Header = () => (
-  <div className="navbar">
-    <Link to="/">Home</Link>
-    <Link to="/se_loger">Se loger</Link>
-    <Link to="/les_environs">Les environs</Link>
+const Navbar = () => (
+  <div id="navbarContainer">
+    <div id="navbar">
+      <Link to="/bienvenue">Bienvenue</Link>
+      <Link to="/logement">Logement</Link>
+      <Link to="/contact">Contact</Link>
+      <Link to="/adresses">Adresses</Link>
+      <Link to="/test">Test</Link>
+      <Link to="/presence">Confirmation présence</Link>
+      <Link to="/questions">Questions</Link>
+    </div>
   </div>
 );
 
-export default Header;
+export default Navbar;
