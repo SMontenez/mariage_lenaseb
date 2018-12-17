@@ -1,7 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import { Bienvenue, EnConstruction, Home, Navbar } from './components';
+import {
+  Addresses,
+  Bienvenue,
+  Contact,
+  EnConstruction,
+  Home,
+  Logements,
+  Navbar,
+} from './components';
 import config from './config';
 import './App.css';
 
@@ -21,9 +29,9 @@ const App = () => {
 
         <Route path="/" exact component={Home} />
         <Route path="/bienvenue" component={Bienvenue} />
-        <Route path="/logement" component={EnConstruction} />
-        <Route path="/contact" component={EnConstruction} />
-        <Route path="/adresses" component={EnConstruction} />
+        <Route path="/addresses" component={Addresses} />
+        <Route path="/Logements" component={Logements} />
+        <Route path="/contact" component={Contact} />
         <Route path="/test" component={EnConstruction} />
         <Route path="/presence" component={EnConstruction} />
         <Route path="/questions" component={EnConstruction} />
