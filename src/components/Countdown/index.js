@@ -3,7 +3,7 @@ import React from 'react';
 import './Countdown.css';
 
 const ONE_DAY = 24 * 60 * 60 * 1000;
-const WEDDING_DATE = new Date(2019, 8, 17);
+const WEDDING_DATE = new Date('2019-08-17');
 
 function getNbDaysLeft() {
   const today = new Date();

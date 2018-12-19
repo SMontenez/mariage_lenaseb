@@ -3,6 +3,17 @@
   src: url('./resources/DiaryAmily.ttf');
 }
 
+@font-face {
+  font-family: 'DancingScript';
+  src: url('./resources/DancingScript-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'DancingScript';
+  font-weight: 'bold';
+  src: url('./resources/DancingScript-Bold.ttf');
+}
+
 html {
   height: 100%;
 }
@@ -10,7 +21,7 @@ html {
 body {
   height: 100%;
   margin: 0;
-  font-family: 'DiaryAmily', 'Ubuntu', sans-serif;
+  font-family: 'DancingScript', 'Ubuntu', sans-serif;
   color: black;
 }
 

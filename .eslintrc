@@ -38,6 +38,7 @@
     "caches": true,
     "fetch": true,
     "Request": true,
-    "navigator": true
+    "navigator": true,
+    "FormData": true
   }
 }
