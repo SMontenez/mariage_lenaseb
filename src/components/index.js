@@ -1,9 +1,10 @@
-import Addresses from './Addresses';
+import Adresses from './Adresses';
 import Bienvenue from './Bienvenue';
 import Contact from './Contact';
+import Covoiturage from './Covoiturage';
 import EnConstruction from './EnConstruction';
 import Home from './Home';
 import Logements from './Logements';
-import Navbar from './Navbar';
+import Menu from './Menu';
 
-export { Addresses, Bienvenue, Contact, EnConstruction, Home, Logements, Navbar };
+export { Adresses, Bienvenue, Contact, Covoiturage, EnConstruction, Home, Logements, Menu };

@@ -1,22 +1,40 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { withStyles } from '@material-ui/core/styles';
 
 import {
-  Addresses,
+  Adresses,
   Bienvenue,
   Contact,
+  Covoiturage,
   EnConstruction,
   Home,
   Logements,
-  Navbar,
+  Menu,
 } from './components';
 import config from './config';
-import './App.css';
+import headerPicture from './resources/header.png';
 
-const App = () => {
+const styles = {
+  root: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  content: {
+    'min-height': '100vh',
+    width: '800px',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
+};
+
+const App = ({ classes }) => {
   if (config.siteEnConstruction) {
     return (
-      <div id="app">
+      <div className={classes.root}>
         <EnConstruction />
       </div>
     );
@@ -24,20 +42,28 @@ const App = () => {
 
   return (
     <Router>
-      <div id="app">
-        <Navbar />
-
+      <div className={classes.root}>
         <Route path="/" exact component={Home} />
-        <Route path="/bienvenue" component={Bienvenue} />
-        <Route path="/addresses" component={Addresses} />
-        <Route path="/Logements" component={Logements} />
-        <Route path="/contact" component={Contact} />
-        <Route path="/test" component={EnConstruction} />
-        <Route path="/presence" component={EnConstruction} />
-        <Route path="/questions" component={EnConstruction} />
+        <div className={classes.content} id="app-content">
+          <div>
+            <img className={classes.image} alt="lenaseb" src={headerPicture} />
+          </div>
+          <Menu />
+          <Route path="/bienvenue" component={Bienvenue} />
+          <Route path="/adresses" component={Adresses} />
+          <Route path="/logements" component={Logements} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/covoiturage" component={Covoiturage} />
+          <Route path="/jeux" component={EnConstruction} />
+          <Route path="/presence" component={EnConstruction} />
+        </div>
       </div>
     </Router>
   );
 };
 
-export default App;
+App.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(App);

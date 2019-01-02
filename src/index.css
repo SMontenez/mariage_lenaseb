@@ -1,48 +1,34 @@
 @font-face {
-  font-family: 'DiaryAmily';
-  src: url('./resources/DiaryAmily.ttf');
+  font-family: 'DancingScript';
+  src: url('./resources/fonts/DancingScript.ttf');
 }
 
 @font-face {
   font-family: 'DancingScript';
-  src: url('./resources/DancingScript-Regular.ttf');
+  font-weight: bold;
+  src: url('./resources/fonts/DancingScript-Bold.ttf');
 }
 
 @font-face {
-  font-family: 'DancingScript';
-  font-weight: 'bold';
-  src: url('./resources/DancingScript-Bold.ttf');
+  font-family: 'ChampagneAndLimousines';
+  src: url('./resources/fonts/ChampagneAndLimousines.ttf');
 }
 
-html {
-  height: 100%;
+@font-face {
+  font-family: 'ChampagneAndLimousines';
+  font-weight: bold;
+  src: url('./resources/fonts/ChampagneAndLimousines-Bold.ttf');
 }
 
-body {
-  height: 100%;
-  margin: 0;
-  font-family: 'DancingScript', 'Ubuntu', sans-serif;
-  color: black;
+@font-face {
+  font-family: 'ChampagneAndLimousines';
+  font-style: italic;
+  src: url('./resources/fonts/ChampagneAndLimousines-Italic.ttf');
 }
 
-#root {
-  height: 100%;
-}
-
-h1 {
-  font-size: 3.5em;
-  font-weight: 550;
-}
-
-p {
-  font-size: 1.3em;
-}
-
-a {
-  text-decoration: none;
-  color: black;
-}
-
-a:hover {
-  text-decoration: underline;
+@font-face {
+  font-family: 'ChampagneAndLimousines';
+  font-weight: bold;
+  font-style: italic;
+  src: url('./resources/fonts/ChampagneAndLimousines-Bold-Italic.ttf');
 }
