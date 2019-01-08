@@ -18,23 +18,29 @@ const styles = (theme) => ({
   icon: {
     marginRight: theme.spacing.unit,
   },
+  arrowIcon: {
+    marginRight: theme.spacing.unit,
+    marginLeft: theme.spacing.unit,
+  },
 });
 
 const Item = ({ classes, data }) => (
-  <div className={classes.margin}>
-    <Card raised className={classes.root}>
+  <div className={classes.root}>
+    <Card raised className={classes.margin}>
       <CardContent>
         <List>
-          <ListItem>
-            <TimeToLeaveIcon className={classes.icon} />
-            {data.from}
-            <ArrowRightAltIcon className={classes.icon} />
-            {data.to}
-          </ListItem>
           <ListItem>
             <PersonIcon className={classes.icon} />
             <span style={{ marginRight: '3px' }}>{data.firstname}</span>
             <span style={{ marginRight: '10px' }}>{data.lastname}</span>
+          </ListItem>
+          <ListItem>
+            <TimeToLeaveIcon className={classes.icon} />
+            {data.from}
+            <ArrowRightAltIcon className={classes.arrowIcon} />
+            {data.to}
+          </ListItem>
+          <ListItem>
             <GroupAddIcon className={classes.icon} />
             {data.nbPlaces}
           </ListItem>

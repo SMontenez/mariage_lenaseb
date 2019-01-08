@@ -4,7 +4,7 @@ import { Tab, Tabs, Typography } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 
 import ProposalListing from './ProposalListing';
-import { getProposals, getRequests } from '../../core/services/covoit';
+import RequestListing from './RequestListing';
 
 const styles = (theme) => ({
   root: {
@@ -30,16 +30,9 @@ class Covoiturage extends Component {
     const initialValue = props.location.state && props.location.state.value;
     this.state = {
       value: initialValue || 0,
-      proposals: [],
     };
 
     this.handleChange = this.handleChange.bind(this);
-
-    getProposals()
-      .then(({ result }) => this.setState({ proposals: result }))
-      .catch((response) => {
-        if (response.statusCode === 404) this.setState({ proposals: [] });
-      });
   }
 
   handleChange(event, value) {
@@ -48,7 +41,7 @@ class Covoiturage extends Component {
 
   render() {
     const { classes } = this.props;
-    const { value, proposals } = this.state;
+    const { value } = this.state;
 
     return (
       <div className={classes.root}>
@@ -67,7 +60,8 @@ class Covoiturage extends Component {
           <Tab label="Trajets proposés" />
           <Tab label="Trajets recherchés" />
         </Tabs>
-        {value === 0 && <ProposalListing items={proposals} />}
+        {value === 0 && <ProposalListing />}
+        {value === 1 && <RequestListing />}
       </div>
     );
   }

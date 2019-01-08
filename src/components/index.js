@@ -6,5 +6,16 @@ import EnConstruction from './EnConstruction';
 import Home from './Home';
 import Logements from './Logements';
 import Menu from './Menu';
+import Presence from './Presence';
 
-export { Adresses, Bienvenue, Contact, Covoiturage, EnConstruction, Home, Logements, Menu };
+export {
+  Adresses,
+  Bienvenue,
+  Contact,
+  Covoiturage,
+  EnConstruction,
+  Home,
+  Logements,
+  Menu,
+  Presence,
+};

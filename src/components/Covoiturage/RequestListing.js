@@ -1,42 +1,99 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Fab, Typography } from '@material-ui/core';
+import { Button, Fab, Typography } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import AddIcon from '@material-ui/icons/Add';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
-import Item from './Item';
+import Form from './Form';
+import Listing from './Listing';
+import { getRequests } from '../../core/services/covoit';
 
 const styles = (theme) => ({
+  root: {
+    width: '100%',
+  },
   addButton: {
     margin: '30px',
-    alignSelf: 'flex-start',
     display: 'flex',
     alignItems: 'center',
+    justifyContent: 'center',
   },
   margin: {
     margin: theme.spacing.unit,
   },
 });
 
-const RequestListing = ({ classes, items }) => (
-  <div>
-    <div className={classes.addButton}>
-      <div>
-        <Fab size="small" color="secondary" aria-label="Add" className={classes.margin}>
-          <AddIcon />
-        </Fab>
-      </div>
-      <Typography variant="body1">Ajouter votre recherche</Typography>
-    </div>
-    {items.map((element) => (
-      <Item key={element._id} data={element} />
-    ))}
-  </div>
-);
+class ProposalListing extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      requests: [],
+      showListing: true,
+      showForm: false,
+    };
 
-RequestListing.propTypes = {
+    getRequests()
+      .then(({ result }) => this.setState({ requests: result }))
+      .catch((response) => {
+        if (response.statusCode === 404) this.setState({ requests: [] });
+      });
+
+    this.handleClick = this.handleClick.bind(this);
+    this.handleBackClick = this.handleBackClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState({ showListing: false, showForm: true });
+  }
+
+  handleBackClick() {
+    getRequests()
+      .then(({ result }) => this.setState({ requests: result, showListing: true, showForm: false }))
+      .catch((response) => {
+        if (response.statusCode === 404) this.setState({ requests: [] });
+      });
+  }
+
+  render() {
+    const { classes } = this.props;
+
+    return (
+      <div className={classes.root}>
+        {this.state.showListing && (
+          <div>
+            <div className={classes.addButton}>
+              <div>
+                <Fab
+                  size="small"
+                  color="secondary"
+                  aria-label="Add"
+                  className={classes.margin}
+                  onClick={this.handleClick}
+                >
+                  <AddIcon />
+                </Fab>
+              </div>
+              <Typography variant="body1">Ajouter votre recherche</Typography>
+            </div>
+            <Listing items={this.state.requests} />
+          </div>
+        )}
+        {this.state.showForm && (
+          <div>
+            <Button onClick={this.handleBackClick}>
+              <ArrowBackIcon />
+            </Button>
+            <Form type="request" />
+          </div>
+        )}
+      </div>
+    );
+  }
+}
+
+ProposalListing.propTypes = {
   classes: PropTypes.object.isRequired,
-  items: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-export default withStyles(styles)(RequestListing);
+export default withStyles(styles)(ProposalListing);

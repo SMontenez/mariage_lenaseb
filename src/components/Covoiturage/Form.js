@@ -1,17 +1,32 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 import { Button, CircularProgress, TextField, Typography } from '@material-ui/core';
 import { DatePicker } from 'material-ui-pickers';
 import { withStyles } from '@material-ui/core/styles';
 import ContactMailIcon from '@material-ui/icons/ContactMail';
 import ContactPhoneIcon from '@material-ui/icons/ContactPhone';
 import DateRangeIcon from '@material-ui/icons/DateRange';
-import GroupAddIcon from '@material-ui/icons/GroupAdd';
 import PersonIcon from '@material-ui/icons/Person';
 import TimeToLeaveIcon from '@material-ui/icons/TimeToLeave';
 
 import * as validators from '../../core/helpers/validators';
 import { create } from '../../core/services/covoit';
+
+const WEDDING_DATE = '2019-08-17';
+
+const texts = {
+  error: {
+    proposal:
+      'Désolé, une erreur est survenue et votre trajet n&#39;a pas pu être créé. Veuillez réessayer plus tard.',
+    request:
+      'Désolé, une erreur est survenue et votre recherche n&#39;a pas pu être créee. Veuillez réessayer plus tard.',
+  },
+  success: {
+    proposal: 'Votre trajet a été créé avec succès !',
+    request: 'Votre recherche a été créée avec succès !',
+  },
+};
 
 const styles = (theme) => ({
   root: {
@@ -42,6 +57,7 @@ const styles = (theme) => ({
     alignSelf: 'stretch',
     display: 'flex',
     alignItems: 'center',
+    marginBottom: theme.spacing.unit * 2,
   },
   input: {
     marginRight: theme.spacing.unit * 2,
@@ -64,10 +80,23 @@ const styles = (theme) => ({
   },
 });
 
+function checkInvalidity(fieldName, value) {
+  if (fieldName === 'email') {
+    return !validators.email(value);
+  }
+
+  if (fieldName === 'phone') {
+    return !validators.phone(value);
+  }
+
+  return value === '';
+}
+
 class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      type: props.type,
       firstname: {
         value: '',
         isInvalid: false,
@@ -89,7 +118,7 @@ class Form extends Component {
         isInvalid: false,
       },
       date: {
-        value: '',
+        value: moment(WEDDING_DATE).toISOString(),
         isInvalid: false,
       },
       phone: {
@@ -102,7 +131,6 @@ class Form extends Component {
       },
     };
 
-    this.checkInvalidity = this.checkInvalidity.bind(this);
     this.getValuesToCreate = this.getValuesToCreate.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -112,7 +140,7 @@ class Form extends Component {
 
   getValuesToCreate() {
     return {
-      type: 'proposal',
+      type: this.state.type,
       firstname: this.state.firstname.value,
       lastname: this.state.lastname.value,
       from: this.state.from.value,
@@ -120,28 +148,29 @@ class Form extends Component {
       nbPlaces: this.state.nbPlaces.value,
       date: this.state.date.value,
       contact: {
-        téléphone: this.state.téléphone.value,
+        phone: this.state.phone.value,
         email: this.state.email.value,
       },
     };
-  }
-
-  checkInvalidity(fieldName, value) {
-    if (fieldName === 'email') {
-      return this.isInvalid('phone') && (value === '' || !validators.email(value));
-    }
-    if (fieldName === 'phone') {
-      return value === '' && this.isInvalid('email');
-    }
-
-    return value === '';
   }
 
   handleChange(fieldName) {
     return (event) => {
       if (fieldName) {
         const { value } = event.target;
-        const isInvalid = this.checkInvalidity(fieldName, value);
+
+        const isInvalid = checkInvalidity(fieldName, value);
+        this.setState({ [fieldName]: { value, isInvalid } });
+      }
+    };
+  }
+
+  handleDateChange(fieldName) {
+    return (event) => {
+      if (fieldName) {
+        const value = event.toISOString();
+
+        const isInvalid = checkInvalidity(fieldName, value);
         this.setState({ [fieldName]: { value, isInvalid } });
       }
     };
@@ -150,12 +179,12 @@ class Form extends Component {
   async handleClick() {
     try {
       this.setState({ error: false, success: false, sending: true });
-      await create(this.getValues());
+      await create(this.getValuesToCreate());
     } catch (err) {
       this.setState({ error: true, success: false, sending: false });
       return;
     }
-    document.getElementById('contactForm').reset();
+    document.getElementById('covoitForm').reset();
     this.setState({ error: false, success: true, sending: false });
   }
 
@@ -164,7 +193,7 @@ class Form extends Component {
   }
 
   isFormValid() {
-    return Object.keys(this.state).some(this.isInvalid);
+    return !Object.keys(this.state).some(this.isInvalid);
   }
 
   render() {
@@ -172,10 +201,23 @@ class Form extends Component {
 
     return (
       <div>
-        <form className={classes.form} id="contactForm">
+        <form className={classes.form} id="covoitForm">
           <Typography variant="caption" className={classes.requiredLabel}>
             * Champs obligatoire
           </Typography>
+          <div className={classes.inputs}>
+            <DateRangeIcon className={classes.icon} fontSize="large" />
+            <DatePicker
+              className={classes.input}
+              label="Date"
+              variant="outlined"
+              required
+              clearable
+              value={this.state.date.value}
+              error={this.isInvalid('date')}
+              onChange={this.handleDateChange('date')}
+            />
+          </div>
           <div className={classes.inputs}>
             <PersonIcon className={classes.icon} fontSize="large" />
             <TextField
@@ -214,23 +256,13 @@ class Form extends Component {
               onChange={this.handleChange('to')}
             />
             <TextField
+              type="number"
               className={classes.input}
               label="Nombre de places"
               variant="outlined"
               required
               error={this.isInvalid('nbPlaces')}
               onChange={this.handleChange('nbPlaces')}
-            />
-          </div>
-          <div className={classes.inputs}>
-            <DateRangeIcon className={classes.icon} fontSize="large" />
-            <DatePicker
-              className={classes.input}
-              label="Date"
-              variant="outlined"
-              required
-              error={this.isInvalid('date')}
-              onChange={this.handleChange('date')}
             />
           </div>
           <div className={classes.inputs}>
@@ -256,7 +288,7 @@ class Form extends Component {
                 />
               </div>
             </div>
-            <Typography variant="caption">(remplir au moins un de ces deux champs)</Typography>
+            <Typography variant="body1">(remplir au moins un de ces deux champs)</Typography>
           </div>
           <Button
             className={classes.button}
@@ -269,13 +301,12 @@ class Form extends Component {
           {this.state.sending && <CircularProgress className={classes.result} />}
           {this.state.error && (
             <Typography variant="body1" color="error" className={classes.result}>
-              Désolé, une erreur est survenue et votre trajet n&#39;a pas pu être créé. Veuillez
-              réessayer plus tard.
+              {texts.error[this.state.type]}
             </Typography>
           )}
           {this.state.success && (
             <Typography variant="body1" color="primary" className={classes.result}>
-              Votre trajet a été créé avec succès !
+              {texts.success[this.state.type]}
             </Typography>
           )}
         </form>
@@ -286,6 +317,7 @@ class Form extends Component {
 
 Form.propTypes = {
   classes: PropTypes.object.isRequired,
+  type: PropTypes.oneOf(['proposal', 'request']).isRequired,
 };
 
 export default withStyles(styles)(Form);

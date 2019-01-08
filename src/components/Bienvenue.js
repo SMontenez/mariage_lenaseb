@@ -27,8 +27,12 @@ const Bienvenue = ({ classes }) => (
     <Typography variant="h6" className={classes.text}>
       Vous avez du recevoir le faire-part, mais si vous avez besoin de plus d’informations, si vous
       l’avez perdu ou si vous êtes digital native … ce site est pour vous !
-      <Typography variant="h6" className={classes.text} />
-      En attendant de vous voir le 17 aout, bonne journée 😉
+    </Typography>
+    <Typography variant="h6" className={classes.text}>
+      En attendant de vous voir le 17 aout, bonne journée{' '}
+      <span role="img" aria-label="emoji">
+        😉
+      </span>
     </Typography>
   </div>
 );

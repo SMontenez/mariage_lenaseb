@@ -4,7 +4,7 @@ import { Button, CircularProgress, TextField, Typography } from '@material-ui/co
 import { withStyles } from '@material-ui/core/styles';
 
 import * as validators from '../core/helpers/validators';
-import { send as sendEmail } from '../core/services/email';
+import { sendContactEmail } from '../core/services/email';
 
 const styles = (theme) => ({
   root: {
@@ -83,6 +83,8 @@ class Contact extends Component {
     };
 
     this.getValues = this.getValues.bind(this);
+    this.isInvalid = this.isInvalid.bind(this);
+    this.isFormValid = this.isFormValid.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
@@ -109,7 +111,7 @@ class Contact extends Component {
   async handleClick() {
     try {
       this.setState({ error: false, success: false, sending: true });
-      await sendEmail(this.getValues());
+      await sendContactEmail(this.getValues());
     } catch (err) {
       this.setState({ error: true, success: false, sending: false });
       return;
@@ -118,21 +120,12 @@ class Contact extends Component {
     this.setState({ error: false, success: true, sending: false });
   }
 
-  isEmpty(fieldName) {
-    return this.state[fieldName] === '';
-  }
-
   isInvalid(fieldName) {
     return this.state[fieldName].isInvalid;
   }
 
   isFormValid() {
-    return (
-      !!this.state.firstname.value &&
-      !!this.state.lastname.value &&
-      validators.email(this.state.email.value) &&
-      !!this.state.message.value
-    );
+    return !Object.keys(this.state).some(this.isInvalid);
   }
 
   render() {

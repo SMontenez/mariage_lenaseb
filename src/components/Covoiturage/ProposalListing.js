@@ -7,12 +7,17 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 import Form from './Form';
 import Listing from './Listing';
+import { getProposals } from '../../core/services/covoit';
 
 const styles = (theme) => ({
+  root: {
+    width: '100%',
+  },
   addButton: {
     margin: '30px',
     display: 'flex',
     alignItems: 'center',
+    justifyContent: 'center',
   },
   margin: {
     margin: theme.spacing.unit,
@@ -23,9 +28,16 @@ class ProposalListing extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      proposals: [],
       showListing: true,
       showForm: false,
     };
+
+    getProposals()
+      .then(({ result }) => this.setState({ proposals: result }))
+      .catch((response) => {
+        if (response.statusCode === 404) this.setState({ proposals: [] });
+      });
 
     this.handleClick = this.handleClick.bind(this);
     this.handleBackClick = this.handleBackClick.bind(this);
@@ -36,14 +48,20 @@ class ProposalListing extends Component {
   }
 
   handleBackClick() {
-    this.setState({ showListing: true, showForm: false });
+    getProposals()
+      .then(({ result }) =>
+        this.setState({ proposals: result, showListing: true, showForm: false }),
+      )
+      .catch((response) => {
+        if (response.statusCode === 404) this.setState({ proposals: [] });
+      });
   }
 
   render() {
-    const { classes, items } = this.props;
+    const { classes } = this.props;
 
     return (
-      <div>
+      <div className={classes.root}>
         {this.state.showListing && (
           <div>
             <div className={classes.addButton}>
@@ -60,7 +78,7 @@ class ProposalListing extends Component {
               </div>
               <Typography variant="body1">Proposer un trajet</Typography>
             </div>
-            <Listing items={items} />
+            <Listing items={this.state.proposals} />
           </div>
         )}
         {this.state.showForm && (
@@ -68,7 +86,7 @@ class ProposalListing extends Component {
             <Button onClick={this.handleBackClick}>
               <ArrowBackIcon />
             </Button>
-            <Form backValue="0" />
+            <Form type="proposal" />
           </div>
         )}
       </div>
@@ -78,7 +96,6 @@ class ProposalListing extends Component {
 
 ProposalListing.propTypes = {
   classes: PropTypes.object.isRequired,
-  items: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default withStyles(styles)(ProposalListing);

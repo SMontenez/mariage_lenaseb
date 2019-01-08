@@ -12,6 +12,7 @@ import {
   Home,
   Logements,
   Menu,
+  Presence,
 } from './components';
 import config from './config';
 import headerPicture from './resources/header.png';
@@ -54,8 +55,8 @@ const App = ({ classes }) => {
           <Route path="/logements" component={Logements} />
           <Route path="/contact" component={Contact} />
           <Route path="/covoiturage" component={Covoiturage} />
+          <Route path="/presence" component={Presence} />
           <Route path="/jeux" component={EnConstruction} />
-          <Route path="/presence" component={EnConstruction} />
         </div>
       </div>
     </Router>

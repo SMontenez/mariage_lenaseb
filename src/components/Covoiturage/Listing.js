@@ -6,9 +6,10 @@ import Item from './Item';
 
 const styles = () => ({
   root: {
+    width: '100%',
     display: 'flex',
     alignItems: 'center',
-    flexWrap: 'wrap',
+    justifyContent: 'space-evenly',
   },
 });
 
