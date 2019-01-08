@@ -14,7 +14,7 @@ const styles = (theme) => ({
     alignItems: 'center',
   },
   form: {
-    width: '800px',
+    width: '100%',
     marginBottom: '50px',
     padding: '10px 20px 20px',
     display: 'flex',

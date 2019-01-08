@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import { Button, CircularProgress, TextField, Typography } from '@material-ui/core';
+import { Button, CircularProgress, InputAdornment, TextField, Typography } from '@material-ui/core';
 import { DatePicker } from 'material-ui-pickers';
 import { withStyles } from '@material-ui/core/styles';
-import ContactMailIcon from '@material-ui/icons/ContactMail';
-import ContactPhoneIcon from '@material-ui/icons/ContactPhone';
-import DateRangeIcon from '@material-ui/icons/DateRange';
-import PersonIcon from '@material-ui/icons/Person';
-import TimeToLeaveIcon from '@material-ui/icons/TimeToLeave';
+import {
+  ContactMail as ContactMailIcon,
+  ContactPhone as ContactPhoneIcon,
+  DateRange as DateRangeIcon,
+  Person as PersonIcon,
+  Place as PlaceIcon,
+  TimeToLeave as TimeToLeaveIcon,
+} from '@material-ui/icons';
 
 import * as validators from '../../core/helpers/validators';
 import { create } from '../../core/services/covoit';
@@ -36,7 +39,7 @@ const styles = (theme) => ({
     alignItems: 'center',
   },
   form: {
-    width: '800px',
+    width: '100%',
     marginBottom: '50px',
     padding: '10px 20px 20px',
     display: 'flex',
@@ -49,10 +52,6 @@ const styles = (theme) => ({
   requiredLabel: {
     alignSelf: 'flex-end',
   },
-  icon: {
-    marginRight: theme.spacing.unit,
-    marginBottom: theme.spacing.unit * 2,
-  },
   inputs: {
     alignSelf: 'stretch',
     display: 'flex',
@@ -62,6 +61,12 @@ const styles = (theme) => ({
   input: {
     marginRight: theme.spacing.unit * 2,
     marginBottom: theme.spacing.unit * 2,
+  },
+  from: {
+    color: theme.palette.primary.dark,
+  },
+  to: {
+    color: '#E2B69B',
   },
   contacts: {
     display: 'flex',
@@ -206,7 +211,6 @@ class Form extends Component {
             * Champs obligatoire
           </Typography>
           <div className={classes.inputs}>
-            <DateRangeIcon className={classes.icon} fontSize="large" />
             <DatePicker
               className={classes.input}
               label="Date"
@@ -216,10 +220,16 @@ class Form extends Component {
               value={this.state.date.value}
               error={this.isInvalid('date')}
               onChange={this.handleDateChange('date')}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <DateRangeIcon />
+                  </InputAdornment>
+                ),
+              }}
             />
           </div>
           <div className={classes.inputs}>
-            <PersonIcon className={classes.icon} fontSize="large" />
             <TextField
               className={classes.input}
               label="Prénom"
@@ -227,6 +237,13 @@ class Form extends Component {
               required
               error={this.isInvalid('firstname')}
               onChange={this.handleChange('firstname')}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <PersonIcon />
+                  </InputAdornment>
+                ),
+              }}
             />
             <TextField
               className={classes.input}
@@ -235,10 +252,16 @@ class Form extends Component {
               required
               error={this.isInvalid('lastname')}
               onChange={this.handleChange('lastname')}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <PersonIcon />
+                  </InputAdornment>
+                ),
+              }}
             />
           </div>
           <div className={classes.inputs}>
-            <TimeToLeaveIcon className={classes.icon} fontSize="large" />
             <TextField
               className={classes.input}
               label="Départ"
@@ -246,6 +269,13 @@ class Form extends Component {
               required
               error={this.isInvalid('from')}
               onChange={this.handleChange('from')}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <PlaceIcon className={classes.from} />
+                  </InputAdornment>
+                ),
+              }}
             />
             <TextField
               className={classes.input}
@@ -254,6 +284,13 @@ class Form extends Component {
               required
               error={this.isInvalid('to')}
               onChange={this.handleChange('to')}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <PlaceIcon className={classes.to} />
+                  </InputAdornment>
+                ),
+              }}
             />
             <TextField
               type="number"
@@ -263,28 +300,47 @@ class Form extends Component {
               required
               error={this.isInvalid('nbPlaces')}
               onChange={this.handleChange('nbPlaces')}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <TimeToLeaveIcon />
+                  </InputAdornment>
+                ),
+              }}
             />
           </div>
           <div className={classes.inputs}>
             <div className={classes.contacts}>
               <div>
-                <ContactMailIcon className={classes.icon} fontSize="large" />
                 <TextField
                   className={classes.input}
                   label="Email"
                   variant="outlined"
                   error={this.isInvalid('email')}
                   onChange={this.handleChange('email')}
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <ContactMailIcon />
+                      </InputAdornment>
+                    ),
+                  }}
                 />
               </div>
               <div>
-                <ContactPhoneIcon className={classes.icon} fontSize="large" />
                 <TextField
                   className={classes.input}
                   label="Téléphone"
                   variant="outlined"
                   error={this.isInvalid('phone')}
                   onChange={this.handleChange('phone')}
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <ContactPhoneIcon />
+                      </InputAdornment>
+                    ),
+                  }}
                 />
               </div>
             </div>

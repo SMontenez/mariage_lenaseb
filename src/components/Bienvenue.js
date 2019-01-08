@@ -29,10 +29,7 @@ const Bienvenue = ({ classes }) => (
       l’avez perdu ou si vous êtes digital native … ce site est pour vous !
     </Typography>
     <Typography variant="h6" className={classes.text}>
-      En attendant de vous voir le 17 aout, bonne journée{' '}
-      <span role="img" aria-label="emoji">
-        😉
-      </span>
+      En attendant de vous voir le 17 aout, bonne journée ;-)
     </Typography>
   </div>
 );

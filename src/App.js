@@ -24,11 +24,14 @@ const styles = {
   },
   content: {
     'min-height': '100vh',
-    width: '800px',
+    width: '70%',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-start',
     alignItems: 'center',
+  },
+  image: {
+    width: '100%',
   },
 };
 

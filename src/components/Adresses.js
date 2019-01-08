@@ -29,7 +29,7 @@ const Adresses = ({ classes }) => (
     <Card raised className={classes.card}>
       <CardContent>
         <Typography variant="h6" align="center">
-          <strong>Église de La Crèche</strong>
+          <strong>Église Notre-Dame-des-Neiges</strong>
         </Typography>
         <Typography variant="body1">57 av Paris, 79260 La Crèche</Typography>
         <iframe

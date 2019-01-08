@@ -8,6 +8,7 @@ const styles = (theme) => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
+    justifyContent: 'center',
     paddingBottom: '20px',
     marginTop: '10px',
     marginBottom: '50px',
