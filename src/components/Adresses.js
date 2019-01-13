@@ -6,16 +6,19 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = () => ({
   root: {
+    width: '100%',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
   },
   card: {
+    maxWidth: '100%',
     marginBottom: '30px',
+    padding: '20px',
   },
   map: {
-    margin: '10px',
+    maxWidth: '100%',
     border: '1px solid #999999',
   },
 });
