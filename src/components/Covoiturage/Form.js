@@ -94,6 +94,10 @@ function checkInvalidity(fieldName, value) {
     return !validators.phone(value);
   }
 
+  if (fieldName === 'nbPlaces') {
+    return value < 0 || value > 4;
+  }
+
   return value === '';
 }
 
