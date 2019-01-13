@@ -24,14 +24,14 @@ const Adresses = ({ classes }) => (
   <div className={classes.root}>
     <Typography variant="h2">Adresses</Typography>
     <Typography variant="h6">
-      Vous trouverez ici toutes les adresses dont vous aurez besoin pour nous suivre le 17 aout
+      Vous trouverez ici toutes les adresses dont vous aurez besoin pour nous suivre le 17 août.
     </Typography>
     <Card raised className={classes.card}>
       <CardContent>
         <Typography variant="h6" align="center">
           <strong>Église Notre-Dame-des-Neiges</strong>
         </Typography>
-        <Typography variant="body1">57 av Paris, 79260 La Crèche</Typography>
+        <Typography variant="body1">57 Avenue de Paris, 79260 La Crèche</Typography>
         <iframe
           className={classes.map}
           title="egliseLaCrecheLoc"

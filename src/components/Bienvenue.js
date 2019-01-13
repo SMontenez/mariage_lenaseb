@@ -6,6 +6,7 @@ import { Typography } from '@material-ui/core';
 
 const styles = {
   root: {
+    width: '100%',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',

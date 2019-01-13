@@ -42,6 +42,9 @@ const Menu = ({ classes }) => (
     <Link to="/jeux" className={classes.link}>
       <Button>jeux</Button>
     </Link>
+    <Link to="/liste" className={classes.link}>
+      <Button>liste de mariage</Button>
+    </Link>
   </div>
 );
 

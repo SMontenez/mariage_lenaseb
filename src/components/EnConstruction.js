@@ -7,22 +7,23 @@ import enConstructionPic from '../resources/enConstruction.png';
 
 const styles = {
   root: {
-    'min-height': '100vh',
+    marginTop: '40px',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center',
     alignItems: 'center',
+  },
+  image: {
+    marginTop: '15px',
+    width: '70%',
   },
 };
 
 const EnConstruction = ({ classes }) => (
   <div className={classes.root}>
-    <Typography variant="h2" align="center">
+    <Typography variant="h4" align="center">
       Coming soon...
     </Typography>
-    <div align="center">
-      <img alt="enConstruction" src={enConstructionPic} />
-    </div>
+    <img alt="enConstruction" src={enConstructionPic} className={classes.image} />
   </div>
 );
 

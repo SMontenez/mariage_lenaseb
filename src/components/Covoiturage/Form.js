@@ -39,7 +39,6 @@ const styles = (theme) => ({
     alignItems: 'center',
   },
   form: {
-    width: '100%',
     marginBottom: '50px',
     padding: '10px 20px 20px',
     display: 'flex',
@@ -80,6 +79,7 @@ const styles = (theme) => ({
     },
   },
   result: {
+    marginTop: '5px',
     alignSelf: 'center',
     fontWeight: 'bold',
   },
@@ -215,6 +215,7 @@ class Form extends Component {
               className={classes.input}
               label="Date"
               variant="outlined"
+              format="d MMM"
               required
               clearable
               value={this.state.date.value}
@@ -292,6 +293,8 @@ class Form extends Component {
                 ),
               }}
             />
+          </div>
+          <div className={classes.inputs}>
             <TextField
               type="number"
               className={classes.input}

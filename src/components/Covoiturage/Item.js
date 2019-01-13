@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import { Card, CardContent, List, ListItem } from '@material-ui/core';
+import { Card, CardContent, List, ListItem, Typography } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import ContactMailIcon from '@material-ui/icons/ContactMail';
@@ -15,6 +15,11 @@ const styles = (theme) => ({
   root: {
     margin: theme.spacing.unit,
   },
+  card: {
+    backgroundColor: '#f7f9f7',
+    border: `2px solid ${theme.palette.primary.dark}`,
+    borderRadius: '10px',
+  },
   icon: {
     marginRight: theme.spacing.unit,
   },
@@ -26,38 +31,42 @@ const styles = (theme) => ({
 
 const Item = ({ classes, data }) => (
   <div className={classes.root}>
-    <Card raised className={classes.margin}>
+    <Card raised className={classes.card}>
       <CardContent>
         <List>
           <ListItem>
             <PersonIcon className={classes.icon} />
-            <span style={{ marginRight: '3px' }}>{data.firstname}</span>
-            <span style={{ marginRight: '10px' }}>{data.lastname}</span>
+            <Typography variant="body1" style={{ marginRight: '3px' }}>
+              {data.firstname}
+            </Typography>
+            <Typography variant="body1" style={{ marginRight: '10px' }}>
+              {data.lastname}
+            </Typography>
           </ListItem>
           <ListItem>
             <TimeToLeaveIcon className={classes.icon} />
-            {data.from}
+            <Typography variant="body1">{data.from}</Typography>
             <ArrowRightAltIcon className={classes.arrowIcon} />
-            {data.to}
+            <Typography variant="body1">{data.to}</Typography>
           </ListItem>
           <ListItem>
             <GroupAddIcon className={classes.icon} />
-            {data.nbPlaces}
+            <Typography variant="body1">{data.nbPlaces}</Typography>
           </ListItem>
           <ListItem>
             <DateRangeIcon className={classes.icon} />
-            {moment(data.date).format('DD/MM/YYYY')}
+            <Typography variant="body1">{moment(data.date).format('DD/MM/YYYY')}</Typography>
           </ListItem>
           {!!data.contact.email && (
             <ListItem>
               <ContactMailIcon className={classes.icon} />
-              {data.contact.email}
+              <Typography variant="body1">{data.contact.email}</Typography>
             </ListItem>
           )}
           {!!data.contact.phone && (
             <ListItem>
               <ContactPhoneIcon className={classes.icon} />
-              {data.contact.phone}
+              <Typography variant="body1">{data.contact.phone}</Typography>
             </ListItem>
           )}
         </List>

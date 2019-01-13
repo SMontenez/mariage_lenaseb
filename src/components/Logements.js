@@ -58,7 +58,7 @@ const Logements = ({ classes }) => (
       <ListItem
         button
         component="a"
-        href="https://www.booking.com/searchresults.en-gb.html?aid=397594&label=gog235jc-1FCAEoggI46AdIM1gDaE2IAQGYAQm4ARnIAQ_YAQHoAQH4AQyIAgGoAgM&sid=deb5e8643247ba0a43e16902323932cd&ac_click_type=b&ac_position=0&checkin_month=8&checkin_monthday=17&checkin_year=2019&checkout_month=8&checkout_monthday=18&checkout_year=2019&class_interval=1&dest_id=-1424857&dest_type=city&dtdisc=0&from_sf=1&group_adults=2&group_children=0&inac=0&index_postcard=0&label_click=undef&no_rooms=1&postcard=0&raw_dest_type=city&room1=A%2CA&sb_price_type=total&search_selected=1&shw_aparth=1&slp_r_match=0&src=index&srpvid=40bf95327ba2012c&ss=%C3%89chir%C3%A9%2C%20Poitou-Charentes%2C%20France&ss_all=0&ss_raw=%C3%A9chir%C3%A9&ssb=empty&sshis=0&nflt=ht_id%3D204%3B&rsf=ht_id-204&lsf=ht_id%7C204%7C28&percent_htype_hotel=1"
+        href="https://www.gites-de-france.com/en/search?destination=%C3%89chir%C3%A9&towns=66531&travelers=2&arrival=2019-08-17&departure=2019-08-18"
         target="_blank"
       >
         <ListItemIcon>

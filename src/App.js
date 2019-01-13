@@ -22,9 +22,16 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
   },
+  enConstruction: {
+    minHeight: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   content: {
-    'min-height': '100vh',
     width: '70%',
+    maxWidth: '820px',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-start',
@@ -38,7 +45,7 @@ const styles = {
 const App = ({ classes }) => {
   if (config.siteEnConstruction) {
     return (
-      <div className={classes.root}>
+      <div className={classes.enConstruction}>
         <EnConstruction />
       </div>
     );
@@ -60,6 +67,7 @@ const App = ({ classes }) => {
           <Route path="/covoiturage" component={Covoiturage} />
           <Route path="/presence" component={Presence} />
           <Route path="/jeux" component={EnConstruction} />
+          <Route path="/liste" component={EnConstruction} />
         </div>
       </div>
     </Router>

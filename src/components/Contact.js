@@ -132,7 +132,9 @@ class Contact extends Component {
     const { classes } = this.props;
     return (
       <div className={classes.root}>
-        <Typography variant="h2">Contact</Typography>
+        <Typography variant="h2" align="center">
+          Contact
+        </Typography>
         <Typography variant="h6">
           Si malgré tous nos efforts, vous ne trouvez pas votre bonheur ici, envoyez nous un message
           et nous y répondrons dans les plus bref délais.

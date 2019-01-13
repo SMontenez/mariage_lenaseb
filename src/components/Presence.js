@@ -195,7 +195,7 @@ class Presence extends Component {
                   type="number"
                   value={this.state.nbChildren}
                   className={classes.input}
-                  label="Nombre d'enfants'"
+                  label="Nombre d'enfants"
                   variant="outlined"
                   onChange={this.handleChange('nbChildren')}
                 />

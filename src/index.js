@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import moment from 'moment';
+import 'moment/locale/fr';
+
 import MomentUtils from '@date-io/moment';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -8,9 +11,12 @@ import { MuiPickersUtilsProvider } from 'material-ui-pickers';
 import './index.css';
 import App from './App';
 
+moment.locale('fr');
+
 const theme = createMuiTheme({
   palette: {
     primary: {
+      light: '#e8efe8',
       main: '#c9dbcb',
       dark: '#bacabd',
     },
@@ -24,6 +30,9 @@ const theme = createMuiTheme({
     h2: {
       fontFamily: 'DancingScript',
       'margin-bottom': '50px',
+    },
+    h4: {
+      fontFamily: 'DancingScript',
     },
     h5: {
       fontFamily: 'DancingScript',
@@ -46,7 +55,7 @@ const theme = createMuiTheme({
 ReactDOM.render(
   <React.Fragment>
     <MuiThemeProvider theme={theme}>
-      <MuiPickersUtilsProvider utils={MomentUtils}>
+      <MuiPickersUtilsProvider utils={MomentUtils} locale="fr" moment={moment}>
         <CssBaseline />
         <App />
       </MuiPickersUtilsProvider>
