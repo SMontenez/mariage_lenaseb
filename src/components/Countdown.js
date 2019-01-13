@@ -8,20 +8,23 @@ const WEDDING_DATE = new Date('2019-08-17');
 
 const styles = (theme) => ({
   root: {
-    position: 'absolute',
-    right: '20px',
-    top: '10px',
     width: '80px',
-    padding: '10px 18px',
-    color: theme.palette.primary.main,
-    border: `1px solid ${theme.palette.primary.main}`,
-    'border-radius': '50%',
-  },
-  text: {
-    color: theme.palette.primary.main,
+    marginRight: '5%',
+    padding: '5px 20px',
+    alignSelf: 'flex-end',
+    border: '1px solid black',
+    borderRadius: '50%',
+    backgroundColor: theme.palette.secondary.main,
+    transform: 'rotate(10deg)',
+    [theme.breakpoints.down('md')]: {
+      display: 'none',
+    },
+    [theme.breakpoints.up('md')]: {
+      display: 'block',
+    },
   },
   countNumber: {
-    'font-weight': 'bold',
+    fontWeight: 'bold',
   },
 });
 
