@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { Button, Card, CardContent, CardActions, Typography } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 
+import trads from '../core/trads';
+
 const styles = () => ({
   root: {
     width: '100%',
@@ -25,14 +27,14 @@ const styles = () => ({
 
 const Adresses = ({ classes }) => (
   <div className={classes.root}>
-    <Typography variant="h2">Adresses</Typography>
+    <Typography variant="h2">{trads('Adresses').title}</Typography>
     <Typography variant="h6">
-      Vous trouverez ici toutes les adresses dont vous aurez besoin pour nous suivre le 17 août.
+      {trads('Adresses').description}
     </Typography>
     <Card raised className={classes.card}>
       <CardContent>
         <Typography variant="h6" align="center">
-          <strong>Église Notre-Dame-des-Neiges</strong>
+          <strong>{trads('Adresses').church}</strong>
         </Typography>
         <Typography variant="body1">57 Avenue de Paris, 79260 La Crèche</Typography>
         <iframe
@@ -53,14 +55,14 @@ const Adresses = ({ classes }) => (
           href="https://www.openstreetmap.org/?mlat=46.36139&amp;mlon=-0.30088#map=18/46.36139/-0.30088"
           target="_blank"
         >
-          Agrandir la carte
+          {trads('Adresses').openOSM}
         </Button>
       </CardActions>
     </Card>
     <Card raised className={classes.card}>
       <CardContent>
         <Typography variant="h6" align="center">
-          <strong>Château de la Taillée</strong>
+          <strong>{trads('Adresses').castle}</strong>
         </Typography>
         <Typography variant="body1">372 Rue de la Taillée, 79410 Échiré</Typography>
         <iframe
@@ -81,7 +83,7 @@ const Adresses = ({ classes }) => (
           href="https://www.openstreetmap.org/?mlat=46.39531&amp;mlon=-0.41207#map=17/46.39531/-0.41207"
           target="_blank"
         >
-          Agrandir la carte
+          {trads('Adresses').openOSM}
         </Button>
       </CardActions>
     </Card>

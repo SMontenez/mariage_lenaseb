@@ -15,21 +15,11 @@ import {
 
 import * as validators from '../../core/helpers/validators';
 import { create } from '../../core/services/covoit';
+import trads from '../../core/trads';
 
 const WEDDING_DATE = '2019-08-17';
 
-const texts = {
-  error: {
-    proposal:
-      'Désolé, une erreur est survenue et votre trajet n&#39;a pas pu être créé. Veuillez réessayer plus tard.',
-    request:
-      'Désolé, une erreur est survenue et votre recherche n&#39;a pas pu être créee. Veuillez réessayer plus tard.',
-  },
-  success: {
-    proposal: 'Votre trajet a été créé avec succès !',
-    request: 'Votre recherche a été créée avec succès !',
-  },
-};
+
 
 const styles = (theme) => ({
   root: {
@@ -56,6 +46,12 @@ const styles = (theme) => ({
     display: 'flex',
     alignItems: 'center',
     marginBottom: theme.spacing.unit * 2,
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: 'column',
+    },
+    [theme.breakpoints.up('sm')]: {
+      flexDirection: 'row',
+    },
   },
   input: {
     marginRight: theme.spacing.unit * 2,
@@ -212,12 +208,12 @@ class Form extends Component {
       <div>
         <form className={classes.form} id="covoitForm">
           <Typography variant="caption" className={classes.requiredLabel}>
-            * Champs obligatoire
+            {trads('common').requiredInputLabel}
           </Typography>
           <div className={classes.inputs}>
             <DatePicker
               className={classes.input}
-              label="Date"
+              label={trads("Covoiturage").form.date}
               variant="outlined"
               format="d MMM"
               required
@@ -237,7 +233,7 @@ class Form extends Component {
           <div className={classes.inputs}>
             <TextField
               className={classes.input}
-              label="Prénom"
+              label={trads("common").firstname}
               variant="outlined"
               required
               error={this.isInvalid('firstname')}
@@ -252,7 +248,7 @@ class Form extends Component {
             />
             <TextField
               className={classes.input}
-              label="Nom"
+              label={trads("common").name}
               variant="outlined"
               required
               error={this.isInvalid('lastname')}
@@ -269,7 +265,7 @@ class Form extends Component {
           <div className={classes.inputs}>
             <TextField
               className={classes.input}
-              label="Départ"
+              label={trads("Covoiturage").form.departure}
               variant="outlined"
               required
               error={this.isInvalid('from')}
@@ -284,7 +280,7 @@ class Form extends Component {
             />
             <TextField
               className={classes.input}
-              label="Arrivée"
+              label={trads("Covoiturage").form.arrival}
               variant="outlined"
               required
               error={this.isInvalid('to')}
@@ -302,7 +298,7 @@ class Form extends Component {
             <TextField
               type="number"
               className={classes.input}
-              label="Nombre de places"
+              label={trads("Covoiturage").form.nbPlaces}
               variant="outlined"
               required
               error={this.isInvalid('nbPlaces')}
@@ -321,7 +317,7 @@ class Form extends Component {
               <div>
                 <TextField
                   className={classes.input}
-                  label="Email"
+                  label={trads("common").email}
                   variant="outlined"
                   error={this.isInvalid('email')}
                   onChange={this.handleChange('email')}
@@ -337,7 +333,7 @@ class Form extends Component {
               <div>
                 <TextField
                   className={classes.input}
-                  label="Téléphone"
+                  label={trads("Covoiturage").form.phone}
                   variant="outlined"
                   error={this.isInvalid('phone')}
                   onChange={this.handleChange('phone')}
@@ -351,7 +347,7 @@ class Form extends Component {
                 />
               </div>
             </div>
-            <Typography variant="body1">(remplir au moins un de ces deux champs)</Typography>
+            <Typography variant="body1">{trads("Covoiturage").form.oneFieldMandatory}</Typography>
           </div>
           <Button
             className={classes.button}
@@ -359,17 +355,17 @@ class Form extends Component {
             disabled={!this.isFormValid()}
             onClick={() => this.handleClick()}
           >
-            Envoyer
+            {trads("common").sendButton}
           </Button>
           {this.state.sending && <CircularProgress className={classes.result} />}
           {this.state.error && (
             <Typography variant="body1" color="error" className={classes.result}>
-              {texts.error[this.state.type]}
+              {trads("Covoiturage").error[this.state.type]}
             </Typography>
           )}
           {this.state.success && (
             <Typography variant="body1" color="primary" className={classes.result}>
-              {texts.success[this.state.type]}
+              {trads("Covoiturage").success[this.state.type]}
             </Typography>
           )}
         </form>

@@ -58,7 +58,7 @@ class ProposalListing extends Component {
   }
 
   render() {
-    const { classes } = this.props;
+    const { classes, trads } = this.props;
 
     return (
       <div className={classes.root}>
@@ -76,7 +76,7 @@ class ProposalListing extends Component {
                   <AddIcon />
                 </Fab>
               </div>
-              <Typography variant="body1">Proposer un trajet</Typography>
+              <Typography variant="body1">{trads.addProposal}</Typography>
             </div>
             <Listing items={this.state.proposals} />
           </div>
@@ -86,7 +86,7 @@ class ProposalListing extends Component {
             <Button onClick={this.handleBackClick}>
               <ArrowBackIcon />
             </Button>
-            <Form type="proposal" />
+            <Form type="proposal" trads={trads.form} />
           </div>
         )}
       </div>
@@ -96,6 +96,7 @@ class ProposalListing extends Component {
 
 ProposalListing.propTypes = {
   classes: PropTypes.object.isRequired,
+  trads: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(ProposalListing);

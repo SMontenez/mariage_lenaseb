@@ -17,18 +17,12 @@ const styles = (theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  title: {
-    margin: 'auto',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   image: {
     width: '100%',
     margin: '10px',
   },
   link: {
+    marginTop: '10%',
     ...theme.links,
   },
 });
@@ -42,17 +36,16 @@ class Home extends Component {
     const { classes } = this.props;
     return (
       <div className={classes.root}>
-        <div className={classes.title}>
-          <Typography variant="h2" align="center">
-            Lénaïc et Sébastien
-          </Typography>
-          <div>
-            <img className={classes.image} alt="lenaseb" src={LenaSebPic} />
-          </div>
-          <Typography variant="subtitle1">17 août 2019</Typography>
+        <Typography variant="h2" align="center">
+          Lénaïc et Sébastien
+        </Typography>
+        <div>
+          <img className={classes.image} alt="lenaseb" src={LenaSebPic} />
         </div>
+        <Typography variant="subtitle1">17 août 2019</Typography>
         <Link className={classes.link} to="/bienvenue">
-          <Button onClick={() => displayAppContent(true)}>Entrer</Button>
+          <Button onClick={() => displayAppContent(true, 'fr')}>Bienvenue</Button>
+          <Button onClick={() => displayAppContent(true, 'en')}>Welcome</Button>
         </Link>
       </div>
     );

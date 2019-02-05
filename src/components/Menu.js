@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
+import trads from '../core/trads'
+
 const styles = (theme) => ({
   root: {
     display: 'flex',
@@ -22,28 +24,31 @@ const styles = (theme) => ({
 const Menu = ({ classes }) => (
   <div className={classes.root}>
     <Link to="/bienvenue" className={classes.link}>
-      <Button>bienvenue</Button>
+      <Button>{trads("Menu").bienvenue}</Button>
     </Link>
     <Link to="/adresses" className={classes.link}>
-      <Button>adresses</Button>
+      <Button>{trads("Menu").adresses}</Button>
     </Link>
     <Link to="/logements" className={classes.link}>
-      <Button>logements</Button>
+      <Button>{trads("Menu").logements}</Button>
     </Link>
     <Link to="/contact" className={classes.link}>
-      <Button>contact</Button>
+      <Button>{trads("Menu").contact}</Button>
     </Link>
     <Link to="/covoiturage" className={classes.link}>
-      <Button>covoiturage</Button>
+      <Button>{trads("Menu").covoiturage}</Button>
     </Link>
     <Link to="/presence" className={classes.link}>
-      <Button>presence</Button>
+      <Button>{trads("Menu").presence}</Button>
     </Link>
     <Link to="/jeux" className={classes.link}>
-      <Button>jeux</Button>
+      <Button>{trads("Menu").jeux}</Button>
     </Link>
     <Link to="/liste" className={classes.link}>
-      <Button>liste de mariage</Button>
+      <Button>{trads("Menu").listeDeMariage}</Button>
+    </Link>
+    <Link to="/dresscode" className={classes.link}>
+      <Button>{trads("Menu").dressCode}</Button>
     </Link>
   </div>
 );

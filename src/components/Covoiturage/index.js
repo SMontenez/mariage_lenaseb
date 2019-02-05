@@ -5,9 +5,11 @@ import { withStyles } from '@material-ui/core/styles';
 
 import ProposalListing from './ProposalListing';
 import RequestListing from './RequestListing';
+import trads from '../../core/trads';
 
 const styles = (theme) => ({
   root: {
+    width: '100%',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -45,10 +47,9 @@ class Covoiturage extends Component {
 
     return (
       <div className={classes.root}>
-        <Typography variant="h2">Covoiturage</Typography>
+        <Typography variant="h2">{trads('Covoiturage').title}</Typography>
         <Typography variant="h6">
-          Vous avez une place en plus ? Ou vous cherchez un pilote ? Chauffeur Privé n’étant pas
-          présent dans les Deux-Sèvres, on vous propose l’alternative covoiturage.
+          {trads('Covoiturage').description}
         </Typography>
         <Tabs
           textColor="primary"
@@ -57,11 +58,11 @@ class Covoiturage extends Component {
           value={value}
           onChange={this.handleChange}
         >
-          <Tab label="Trajets proposés" />
-          <Tab label="Trajets recherchés" />
+          <Tab label={trads('Covoiturage').proposalsLabel} />
+          <Tab label={trads('Covoiturage').requestsLabel} />
         </Tabs>
-        {value === 0 && <ProposalListing />}
-        {value === 1 && <RequestListing />}
+        {value === 0 && <ProposalListing trads={trads('Covoiturage')} />}
+        {value === 1 && <RequestListing trads={trads('Covoiturage')} />}
       </div>
     );
   }

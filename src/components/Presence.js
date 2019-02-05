@@ -4,6 +4,7 @@ import { Button, CircularProgress, Radio, TextField, Typography } from '@materia
 import { withStyles } from '@material-ui/core/styles';
 
 import { sendPresenceEmail } from '../core/services/email';
+import trads from '../core/trads'
 
 const styles = (theme) => ({
   root: {
@@ -138,25 +139,25 @@ class Presence extends Component {
     const { classes } = this.props;
     return (
       <div className={classes.root}>
-        <Typography variant="h2">Presence</Typography>
+        <Typography variant="h2">{trads("Presence").title}</Typography>
         <Typography variant="h6">
-          Pas envie d’envoyer la carte ? Confirmez votre présence ici !
+          {trads("Presence").description}
         </Typography>
         <form className={classes.form} id="contactForm">
           <Typography variant="caption" className={classes.requiredLabel}>
-            * Champs obligatoire
+            {trads("common").requiredInputLabel}
           </Typography>
           <div className={classes.nameInputs}>
             <TextField
               className={classes.input}
-              label="Prénom"
+              label={trads("common").firstname}
               variant="outlined"
               required
               onChange={this.handleChange('firstname')}
             />
             <TextField
               className={classes.input}
-              label="Nom"
+              label={trads("common").name}
               variant="outlined"
               required
               onChange={this.handleChange('lastname')}
@@ -169,7 +170,7 @@ class Presence extends Component {
               onChange={() => this.handlePresenceChange(true)}
               name="isPresent"
             />
-            <Typography variant="body1">Je serai présent</Typography>
+            <Typography variant="body1">{trads("Presence").isPresent}</Typography>
           </div>
           <div className={classes.radio}>
             <Radio
@@ -178,7 +179,7 @@ class Presence extends Component {
               onChange={() => this.handlePresenceChange(false)}
               name="wontBePresent"
             />
-            <Typography variant="body1">Regrette de ne pouvoir venir</Typography>
+            <Typography variant="body1">{trads("Presence").isAbsent}</Typography>
           </div>
           {this.state.presence && (
             <div className={classes.info}>
@@ -187,7 +188,7 @@ class Presence extends Component {
                   type="number"
                   value={this.state.nbAdults}
                   className={classes.input}
-                  label="Nombre d'adultes"
+                  label={trads("Presence").nbAdults}
                   variant="outlined"
                   onChange={this.handleChange('nbAdults')}
                 />
@@ -195,17 +196,17 @@ class Presence extends Component {
                   type="number"
                   value={this.state.nbChildren}
                   className={classes.input}
-                  label="Nombre d'enfants"
+                  label={trads("Presence").nbChildren}
                   variant="outlined"
                   onChange={this.handleChange('nbChildren')}
                 />
               </div>
               <Typography variant="body1">
-                Age des enfants, allergies alimentaires, besoins spécifiques ? Dites-nous tout !
+                {trads("Presence").detailsTitle}
               </Typography>
               <TextField
                 className={classes.message}
-                label="Votre message"
+                label={trads("common").message}
                 variant="outlined"
                 multiline
                 rows="6"
@@ -219,18 +220,17 @@ class Presence extends Component {
             disabled={!this.isFormValid()}
             onClick={() => this.handleClick()}
           >
-            Envoyer
+            {trads('common').sendButton}
           </Button>
           {this.state.sending && <CircularProgress className={classes.result} />}
           {this.state.error && (
             <Typography variant="body1" color="error" className={classes.result}>
-              Désolé, une erreur est survenue et votre présence n&#39;a pas pu être enregistrée.
-              Veuillez réessayer plus tard.
+              {trads("Presence").error}
             </Typography>
           )}
           {this.state.success && (
             <Typography variant="body1" color="primary" className={classes.result}>
-              Votre présence est enregistrée, merci !
+              {trads("Presence").success}
             </Typography>
           )}
         </form>

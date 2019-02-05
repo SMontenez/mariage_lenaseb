@@ -8,6 +8,7 @@ const styles = () => ({
   root: {
     width: '100%',
     display: 'flex',
+    flexWrap: 'wrap',
     alignItems: 'center',
     justifyContent: 'space-evenly',
   },

@@ -16,8 +16,7 @@ const styles = (theme) => ({
     margin: theme.spacing.unit,
   },
   card: {
-    backgroundColor: '#f7f9f7',
-    border: `2px solid ${theme.palette.primary.dark}`,
+    border: `2px solid ${theme.palette.primary.main}`,
     borderRadius: '10px',
   },
   icon: {

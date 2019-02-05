@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 
 import {
@@ -8,6 +8,7 @@ import {
   Bienvenue,
   Contact,
   Covoiturage,
+  DressCode,
   EnConstruction,
   Home,
   Logements,
@@ -56,9 +57,9 @@ const App = ({ classes }) => {
       <div className={classes.root}>
         <Route path="/" exact component={Home} />
         <div className={classes.content} id="app-content">
-          <div>
+          <Link className={classes.link} to="/">
             <img className={classes.image} alt="lenaseb" src={headerPicture} />
-          </div>
+          </Link>
           <Menu />
           <Route path="/bienvenue" component={Bienvenue} />
           <Route path="/adresses" component={Adresses} />
@@ -68,6 +69,7 @@ const App = ({ classes }) => {
           <Route path="/presence" component={Presence} />
           <Route path="/jeux" component={EnConstruction} />
           <Route path="/liste" component={EnConstruction} />
+          <Route path="/dresscode" component={DressCode} />
         </div>
       </div>
     </Router>

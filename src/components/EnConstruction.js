@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Typography } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 
+import trads from '../core/trads';
 import enConstructionPic from '../resources/enConstruction.png';
 
 const styles = {
@@ -21,7 +22,7 @@ const styles = {
 const EnConstruction = ({ classes }) => (
   <div className={classes.root}>
     <Typography variant="h4" align="center">
-      Coming soon...
+      {trads('EnConstruction').title}
     </Typography>
     <img alt="enConstruction" src={enConstructionPic} className={classes.image} />
   </div>

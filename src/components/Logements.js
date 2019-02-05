@@ -7,6 +7,7 @@ import HomeIcon from '@material-ui/icons/Home';
 
 import AirbnbIcon from './Icons/Airbnb';
 import TentIcon from './Icons/Tent';
+import trads from '../core/trads'
 
 const styles = (theme) => ({
   root: {
@@ -26,11 +27,10 @@ const styles = (theme) => ({
 const Logements = ({ classes }) => (
   <div className={classes.root}>
     <Typography variant="h2" align="center">
-      Logements
+      {trads("Logements").title}
     </Typography>
     <Typography variant="h6">
-      Fan de camping ? Adepte des hôtels ? Envie d&#39;une chambre chez l&#39;habitant ?<br />
-      Nous avons compilé toutes les options pour vous.
+      {trads("Logements").description}
     </Typography>
     <List className={classes.list}>
       <ListItem
