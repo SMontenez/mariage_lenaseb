@@ -7,7 +7,7 @@ import HomeIcon from '@material-ui/icons/Home';
 
 import AirbnbIcon from './Icons/Airbnb';
 import TentIcon from './Icons/Tent';
-import trads from '../core/trads'
+import trads from '../core/trads';
 
 const styles = (theme) => ({
   root: {
@@ -22,15 +22,22 @@ const styles = (theme) => ({
   icon: {
     color: theme.palette.primary.dark,
   },
+  text: {
+    marginBottom: '10px',
+    alignSelf: 'stretch',
+  },
 });
 
 const Logements = ({ classes }) => (
   <div className={classes.root}>
     <Typography variant="h2" align="center">
-      {trads("Logements").title}
+      {trads('Logements').title}
     </Typography>
-    <Typography variant="h6">
-      {trads("Logements").description}
+    <Typography variant="h6" className={classes.text}>
+      {trads('Logements').text1}
+    </Typography>
+    <Typography variant="h6" className={classes.text}>
+      {trads('Logements').text2}
     </Typography>
     <List className={classes.list}>
       <ListItem

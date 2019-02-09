@@ -9,26 +9,32 @@ export default {
   },
   Adresses: {
     title: 'Adresses',
-    description: 'Vous trouverez ici toutes les adresses dont vous aurez besoin pour nous suivre le 17 août.',
+    description:
+      'Vous trouverez ici toutes les adresses dont vous aurez besoin pour nous suivre le 17 août.',
     church: 'Église Notre-Dame-des-Neiges',
     castle: 'Château de la Taillée',
-    openOSM: 'Agrandir la carte'
+    openOSM: 'Agrandir la carte',
   },
   Bienvenue: {
     title: 'Bienvenue !',
-    text1: 'Après des semaines d’hésitation, des heures de réflexions et quelques mois de relations: nous avons décidé de nous marier !',
-    text2: 'Vous avez du recevoir le faire-part, mais si vous avez besoin de plus d’informations, si vous l’avez perdu ou si vous êtes digital native … ce site est pour vous !',
-    text3: 'En attendant de vous voir le 17 aout, bonne journée ;-)'
+    text1:
+      'Après des semaines d’hésitation, des heures de réflexions et quelques mois de relations: nous avons décidé de nous marier !',
+    text2:
+      'Vous avez du recevoir le faire-part, mais si vous avez besoin de plus d’informations, si vous l’avez perdu ou si vous êtes digital native … ce site est pour vous !',
+    text3: 'En attendant de vous voir le 17 aout, bonne journée ;-)',
   },
   Contact: {
     title: 'Contact',
-    description: 'Si malgré tous nos efforts, vous ne trouvez pas votre bonheur ici, envoyez nous un message et nous y répondrons dans les plus bref délais.',
-    error: 'Désolé, une erreur est survenue et le mail n\'a pas pu être envoyé. Veuillez réessayer plus tard.',
-    success: 'Votre message a été envoyé avec succès !'
+    description:
+      'Si malgré tous nos efforts, vous ne trouvez pas votre bonheur ici, envoyez nous un message et nous y répondrons dans les plus bref délais.',
+    error:
+      "Désolé, une erreur est survenue et le mail n'a pas pu être envoyé. Veuillez réessayer plus tard.",
+    success: 'Votre message a été envoyé avec succès !',
   },
   Covoiturage: {
     title: 'Covoiturage',
-    description: 'Vous avez une place en plus ? Ou vous cherchez un pilote ? Chauffeur Privé n’étant pas présent dans les Deux-Sèvres, on vous propose l’alternative covoiturage.',
+    description:
+      'Vous avez une place en plus ? Ou vous cherchez un pilote ? Chauffeur Privé n’étant pas présent dans les Deux-Sèvres, on vous propose l’alternative covoiturage.',
     proposalsLabel: 'Trajets proposés',
     requestsLabel: 'Trajets recherchés',
     addProposal: 'Proposer un trajet',
@@ -39,13 +45,13 @@ export default {
       nbPlaces: 'Nombre de places',
       email: 'Email',
       phone: 'Téléphone',
-      oneFieldMandatory: '(remplir au moins un de ces deux champs)'
+      oneFieldMandatory: '(remplir au moins un de ces deux champs)',
     },
     error: {
       proposal:
-        'Désolé, une erreur est survenue et votre trajet n\'a pas pu être créé. Veuillez réessayer plus tard.',
+        "Désolé, une erreur est survenue et votre trajet n'a pas pu être créé. Veuillez réessayer plus tard.",
       request:
-        'Désolé, une erreur est survenue et votre recherche n\'a pas pu être créee. Veuillez réessayer plus tard.',
+        "Désolé, une erreur est survenue et votre recherche n'a pas pu être créee. Veuillez réessayer plus tard.",
     },
     success: {
       proposal: 'Votre trajet a été créé avec succès !',
@@ -54,16 +60,19 @@ export default {
   },
   DressCode: {
     title: 'Dresscode',
-    text1: 'Vous l\'aurez peut-être compris avec le faire-part et le site internet, nous voulons faire un mariage sur le thême \'champètre et élégant\'. Si vous voulez vous fondre dans le décor, quelques pistes pour votre tenue.',
-    text2: 'Couleurs pastels et motifs à fleurs seront à l\'honneur. N\'hésitez pas à sortir vos robes en dentelles et vos noeuds papillon.',
-    text3: 'Besoin d\'un peu d\'inspiration ?',
+    text1:
+      "Vous l'aurez peut-être compris avec le faire-part et le site internet, nous voulons faire un mariage sur le thême 'champètre et élégant'. Si vous voulez vous fondre dans le décor, quelques pistes pour votre tenue.",
+    text2:
+      "Couleurs pastels et motifs à fleurs seront à l'honneur. N'hésitez pas à sortir vos robes en dentelles et vos noeuds papillon.",
+    text3: "Besoin d'un peu d'inspiration ?",
   },
   EnConstruction: {
-    title: 'En construction...'
+    title: 'En construction...',
   },
   Logements: {
     title: 'Logements',
-    description: 'Fan de camping ? Adepte des hôtels ? Envie d\'une chambre chez l\'habitant ?<br /> Nous avons compilé toutes les options pour vous.'
+    text1: "Fan de camping ? Adepte des hôtels ? Envie d'une chambre chez l'habitant ?",
+    text2: 'Nous avons compilé toutes les options pour vous.',
   },
   Menu: {
     adresses: 'adresses',
@@ -74,17 +83,19 @@ export default {
     presence: 'presence',
     jeux: 'jeux',
     listeDeMariage: 'liste de mariage',
-    dressCode: 'dressCode'
+    dressCode: 'dress code',
   },
   Presence: {
     title: 'Présence',
     description: 'Pas envie d’envoyer la carte ? Confirmez votre présence ici !',
     isPresent: 'Je serai présent',
     isAbsent: 'Regrette de ne pouvoir venir',
-    nbAdults: 'Nombre d\'adultes',
-    nbChildren: 'Nombre d\'enfants',
-    detailsTitle: 'Age des enfants, allergies alimentaires, besoins spécifiques ? Dites-nous tout !',
-    error: 'Désolé, une erreur est survenue et votre présence n&#39;a pas pu être enregistrée. Veuillez réessayer plus tard.',
-    success: 'Votre présence est enregistrée, merci !'
+    nbAdults: "Nombre d'adultes",
+    nbChildren: "Nombre d'enfants",
+    detailsTitle:
+      'Age des enfants, allergies alimentaires, besoins spécifiques ? Dites-nous tout !',
+    error:
+      'Désolé, une erreur est survenue et votre présence n&#39;a pas pu être enregistrée. Veuillez réessayer plus tard.',
+    success: 'Votre présence est enregistrée, merci !',
   },
-}
+};
