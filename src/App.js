@@ -11,6 +11,7 @@ import {
   DressCode,
   EnConstruction,
   Home,
+  Liste,
   Logements,
   Menu,
   Presence,
@@ -68,7 +69,7 @@ const App = ({ classes }) => {
           <Route path="/covoiturage" component={Covoiturage} />
           <Route path="/presence" component={Presence} />
           <Route path="/jeux" component={EnConstruction} />
-          <Route path="/liste" component={EnConstruction} />
+          <Route path="/liste" component={Liste} />
           <Route path="/dresscode" component={DressCode} />
         </div>
       </div>

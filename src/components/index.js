@@ -5,6 +5,7 @@ import Covoiturage from './Covoiturage';
 import DressCode from './DressCode';
 import EnConstruction from './EnConstruction';
 import Home from './Home';
+import Liste from './Liste';
 import Logements from './Logements';
 import Menu from './Menu';
 import Presence from './Presence';
@@ -17,6 +18,7 @@ export {
   DressCode,
   EnConstruction,
   Home,
+  Liste,
   Logements,
   Menu,
   Presence,

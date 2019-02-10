@@ -23,7 +23,8 @@
       }
     ],
     "react/forbid-prop-types": 0,
-    "react/no-di-mount-set-state": 0
+    "react/no-di-mount-set-state": 0,
+    "react/jsx-no-target_blank": 0
   },
   "globals": {
     "jest": true,

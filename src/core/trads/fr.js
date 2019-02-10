@@ -69,6 +69,14 @@ export default {
   EnConstruction: {
     title: 'En construction...',
   },
+  Liste: {
+    title: 'Liste de mariage',
+    text1:
+      'Même si votre présence reste le plus beau des cadeaux, nous savons que certains aimeraient nous faire un cadeau plus matériel.',
+    text2BeforeLink: 'Vous trouverez donc ',
+    text2Link: 'ici',
+    text2AfterLink: ' notre liste de mariage.',
+  },
   Logements: {
     title: 'Logements',
     text1: "Fan de camping ? Adepte des hôtels ? Envie d'une chambre chez l'habitant ?",
