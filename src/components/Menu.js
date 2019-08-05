@@ -41,9 +41,6 @@ const Menu = ({ classes }) => (
     <Link to="/presence" className={classes.link}>
       <Button>{trads("Menu").presence}</Button>
     </Link>
-    <Link to="/jeux" className={classes.link}>
-      <Button>{trads("Menu").jeux}</Button>
-    </Link>
     <Link to="/liste" className={classes.link}>
       <Button>{trads("Menu").listeDeMariage}</Button>
     </Link>
