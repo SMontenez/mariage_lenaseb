@@ -6,6 +6,7 @@ export default {
     name: 'Nom',
     email: 'Email',
     message: 'Votre message',
+    password: 'Mot de passe',
   },
   Adresses: {
     title: 'Adresses',
@@ -92,6 +93,22 @@ export default {
     jeux: 'jeux',
     listeDeMariage: 'liste de mariage',
     dressCode: 'dress code',
+    pictures: 'photos',
+  },
+  Pictures: {
+    title: 'Photos',
+    description: "Merci d'entrer le code que nous vous avons communiqué par email.",
+    validatePassword: 'Valider',
+    passwordValid: 'Le mot de passe est valide',
+    startDownload: 'Commencer le téléchargement',
+    downloadStarted: 'Votre téléchargement commence',
+    noPassword: "Vous n'avez pas fourni de mot de passe",
+    forbidden: "Désolé, le mot de passe utilisé n'est pas valide",
+    error:
+      "Désolé, une erreur inconnue est survenue. Veuillez nous contacter (via l'onglet Contact).",
+    reminderCheerz:
+      'Pour rappel, avec le code LENAIC30 vous pouvez bénéficier de 30% de réduction sur toutes vos impressions photos sur ',
+    cheerzWebsite: 'le site de Cheerz',
   },
   Presence: {
     title: 'Présence',

@@ -1,11 +1,13 @@
 export default {
   common: {
     sendButton: 'Send',
+    download: 'Download',
     requiredInputLabel: '* Mandatory',
     firstname: 'Firstname',
     name: 'Last name',
     email: 'Email',
     message: 'Your message',
+    password: 'Password',
   },
   Adresses: {
     title: 'Address',
@@ -27,7 +29,7 @@ export default {
     description:
       "Despite our efforts, if you still can't find what you're looking for, feel free to send us a message and we will reply shortly.",
     error: "Oups, looks like your message couldn't be send. Please try again later.",
-    success: "Yeah! Got your message!",
+    success: 'Yeah! Got your message!',
   },
   Covoiturage: {
     title: 'Carpooling',
@@ -90,6 +92,21 @@ export default {
     jeux: 'jeux',
     listeDeMariage: 'liste de mariage',
     dressCode: 'dress code',
+    pictures: 'pictures',
+  },
+  Pictures: {
+    title: 'Pictures',
+    description: 'Please enter the code that we communicated to you by email.',
+    validatePassword: 'Vaidate',
+    passwordValid: 'Password is valid',
+    startDownload: 'Start the download',
+    downloadStarted: 'Your download starts',
+    noPassword: "You didn't provide a password",
+    forbidden: "Sorry, the password you used isn't valid",
+    error: 'Sorry, an unknown arror happened. Please contact us (via the Contact tab).',
+    reminderCheerz:
+      'We remind you that with the code LENAIC30 you will have a 30% discount to print all the pictures you want on ',
+    cheerzWebsite: 'Cheerz website',
   },
   Presence: {
     title: 'Présence',

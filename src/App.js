@@ -8,12 +8,12 @@ import {
   Bienvenue,
   Contact,
   Covoiturage,
-  DressCode,
   EnConstruction,
   Home,
   Liste,
   Logements,
   Menu,
+  Pictures,
   Presence,
 } from './components';
 import config from './config';
@@ -70,7 +70,10 @@ const App = ({ classes }) => {
           <Route path="/presence" component={Presence} />
           <Route path="/jeux" component={EnConstruction} />
           <Route path="/liste" component={Liste} />
-          <Route path="/dresscode" component={DressCode} />
+          <Route
+            path="/photos"
+            render={(props) => <Pictures {...props} apiBaseUrl={config.api.baseUrl} />}
+          />
         </div>
       </div>
     </Router>

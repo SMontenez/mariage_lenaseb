@@ -2,12 +2,12 @@ import Adresses from './Adresses';
 import Bienvenue from './Bienvenue';
 import Contact from './Contact';
 import Covoiturage from './Covoiturage';
-import DressCode from './DressCode';
 import EnConstruction from './EnConstruction';
 import Home from './Home';
 import Liste from './Liste';
 import Logements from './Logements';
 import Menu from './Menu';
+import Pictures from './Pictures';
 import Presence from './Presence';
 
 export {
@@ -15,7 +15,7 @@ export {
   Bienvenue,
   Contact,
   Covoiturage,
-  DressCode,
+  Pictures,
   EnConstruction,
   Home,
   Liste,

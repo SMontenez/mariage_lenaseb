@@ -44,8 +44,8 @@ const Menu = ({ classes }) => (
     <Link to="/liste" className={classes.link}>
       <Button>{trads("Menu").listeDeMariage}</Button>
     </Link>
-    <Link to="/dresscode" className={classes.link}>
-      <Button>{trads("Menu").dressCode}</Button>
+    <Link to="/photos" className={classes.link}>
+      <Button>{trads("Menu").pictures}</Button>
     </Link>
   </div>
 );
