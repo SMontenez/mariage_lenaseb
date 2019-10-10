@@ -15,7 +15,7 @@ import { heartbeat } from './core/services/heartbeat';
 async function startApp() {
   moment.locale('fr');
 
-  await heartbeat();
+  heartbeat();
 
   const theme = createMuiTheme({
     palette: {
